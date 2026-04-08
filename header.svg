@@ -1,0 +1,39 @@
+<svg width="800" height="200" viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes twinkling { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+    /* The "Steppy" Reveal */
+    @keyframes maskType {
+      0%, 5% { transform: translateX(-100%); }
+      30%, 48% { transform: translateX(0%); }
+      49%, 55% { transform: translateX(-100%); }
+      80%, 98% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Sharp Visibility Swap */
+    @keyframes hide1 { 0%, 48% { opacity: 1; } 49%, 100% { opacity: 0; } }
+    @keyframes hide2 { 0%, 49% { opacity: 0; } 50%, 98% { opacity: 1; } 99%, 100% { opacity: 0; } }
+
+    .hello { font: bold 72px 'JetBrains Mono', monospace; fill: #2DD4BF; animation: hide1 10s infinite; text-anchor: middle; }
+    .builder { font: bold 26px 'JetBrains Mono', monospace; fill: #8b949e; animation: hide2 10s infinite; text-anchor: middle; letter-spacing: 1px; }
+    .mask-rect { animation: maskType 10s steps(40) infinite; }
+    .star { animation: twinkling 3s infinite; }
+  </style>
+
+  <defs>
+    <linearGradient id="p_lin" x1="0" y1="0" x2="800" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0d1117"/><stop offset="1" stop-color="#1a2c2c"/>
+    </linearGradient>
+    <clipPath id="tClip"><rect class="mask-rect" x="0" y="0" width="800" height="200" /></clipPath>
+  </defs>
+
+  <rect width="800" height="200" rx="100" fill="url(#p_lin)"/>
+  
+  <g clip-path="url(#tClip)">
+    <text x="400" y="115" class="hello">HELLO.</text>
+    <text x="400" y="110" class="builder">I BUILD THINGS THAT ACTUALLY WORKS</text>
+  </g>
+
+  <circle class="star" cx="120" cy="60" r="2" fill="#2DD4BF" /><circle class="star" cx="680" cy="140" r="1.5" fill="#2DD4BF" style="animation-delay: 1s"/>
+</svg>
